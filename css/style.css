@@ -1,0 +1,27 @@
+body {
+  background-color: yellowgreen;
+  background-size: cover;
+  background-image: url(https://media.giphy.com/media/T9xqCTvdcUIfe/giphy.gif);
+}
+
+
+div{
+  color: yellow;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+
+}
+
+title{
+  color: yellowgreen;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: start;
+}
+
+.btn {
+  position:absolute;
+    transition: .5s ease;
+    top: 50%;
+    left: 50%;
+}
+
