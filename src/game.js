@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-    // define the empty array for the coins here
     this.obstacles = [];
+    this.gameOver = false;
   }
 
   preloadGame() {
@@ -13,11 +13,10 @@ class Game {
       },
     ];
     this.playerImage = loadImage("/src/assets/bird.svg");
-    this.obstacleImage = loadImage("/src/assets/shark.png");
+    this.obstacleImage = loadImage("/src/assets/obst.png");
   }
 
   setupGame() {
-    // this.obstacle = new Obstacle();
     this.background = new Background();
     this.background.images = this.backgroundImgs;
     //  initialize background + player here
@@ -25,22 +24,26 @@ class Game {
     this.player = new Player();
     this.player.image = this.playerImage;
 
-    let obstacle = new Obstacle();
-    obstacle.image = this.obstacleImage;
-    this.obstacles.push(obstacle);
+    this.obstacles.push(new Obstacle(this.obstacleImage, 0));
+    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH/2 - 100));
+    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH -100));
   }
 
   drawGame() {
+    if (this.gameOver) {
+        document.getElementById("gameOver").style.display = "block";
+        return;
+    }
+
     clear();
     this.background.drawBackground();
     this.player.drawPlayer();
-   
-    // if (frameCount % 60 === 0) {
-    //   this.obstacles.push(new Obstacle(this.coinImg));
-    // }
 
     this.obstacles.forEach((obstacle) => {
       obstacle.drawObstacle();
+      if (obstacle.checkCollision(this.player)) {
+          this.gameOver = true;
+      };
     });
     // this.obstacle.drawObstacle();
     //  call the draw functions for the player + the background
@@ -54,51 +57,3 @@ class Game {
     // });
   }
 }
-
-/*
-window.addEventListener("background", function(){
-    
-    var image = document.getElementById("sky");
-    var canvas = document.createElement("canvas");
-    document.body.appendChild(canvas);
-
-    canvas.width = image.width;
-    canvas.height = image.height;
-
-    var context = canvas.getContext("2d");
-
-    context.drawImage(image, 0, 0);
-});
-
-
-
-
--------
-
-
-let canvas = document.querySelector("#canvas");
-let context = canvas.getContext("2d");
-
-canvas.src = "/assets/sky.png";
-
-
-
-
-sky.onload = () => {
-    requestAnimationFrame(gameLoop); //callback
-}
-let yOffset = -512;    
-
-function gameLoop(){
-    
-    if(yOffset >= 0)yOffset = -512;
-    context.drawImage(sky, 0, yOffset);
-    context.drawImage(sky, 0, yOffset + 512);
-    context.drawImage(sky, 0, yOffset + 1024);
-
-    yOffset += 10;
-
-    requestAnimationFrame(gameLoop)
-}
-
-*/

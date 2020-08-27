@@ -1,21 +1,23 @@
 class Player {
   constructor() {
-    
-    this.height = 300;
-    this.width = 300;
-    this.x = 200;
-    this.y = 200;
+    this.height = 100;
+    this.width = 100;
+    this.x = WIDTH / 2;
+    this.y = HEIGHT - this.height;
     this.gravity = 0.01;
     this.velocity = 5;
     this.image = null;
     this.rightPressed = false;
     this.leftPressed = false;
-    
   }
 
   drawPlayer() {
-    if (this.rightPressed) this.x += this.velocity;
-    if (this.leftPressed) this.x -= this.velocity;
+    if (this.rightPressed && this.x < WIDTH-this.width) {
+      this.x += this.velocity;
+    }
+    if (this.leftPressed && this.x > 0) {
+      this.x -= this.velocity;
+    }
     image(this.image, this.x, this.y, this.height, this.width);
   }
 
@@ -23,12 +25,12 @@ class Player {
     this.rightPressed = true;
   }
 
-  leftDown(){
+  leftDown() {
     this.leftPressed = true;
   }
 
   rightUp() {
-    this.rightPressed  = false;
+    this.rightPressed = false;
   }
 
   leftUp() {

@@ -6,7 +6,6 @@ class Background {
   
     drawBackground() {
       this.x--;
-      // define the draw logic  for the moving background here
       this.images.forEach((picture) => {
         picture.x -= picture.speed;
         image(picture.src, picture.x, 0, width, height);

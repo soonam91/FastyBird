@@ -1,3 +1,3 @@
-const WIDTH = 1000;
-const HEIGHT = WIDTH;
+const WIDTH = 1200;
+const HEIGHT = 600;
 const SQUARE_SIDE = WIDTH;
