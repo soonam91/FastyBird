@@ -19,7 +19,7 @@ class Game {
   setupGame() {
     this.background = new Background();
     this.background.images = this.backgroundImgs;
-    //  initialize background + player here
+    
 
     this.player = new Player();
     this.player.image = this.playerImage;
@@ -48,16 +48,7 @@ class Game {
           this.gameOver = true;
       };
     });
-    // this.obstacle.drawObstacle();
-    //  call the draw functions for the player + the background
-    // define the obstacle drawing logic + add a new obstacle to  the array in the constructor with the image passed into it
-    // this.obstacles = this.obstacles.filter((obstacle) => {
-    //   if (obstacle.collision(this.player)) {
-    //     return false;
-    //   } else {
-    //     return true;
-    //   }
-    // });
+   
   }
 
   
