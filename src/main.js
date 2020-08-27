@@ -1,5 +1,5 @@
 const game = new Game();
-var timers = [];  // timer does not working
+var timers = [];  // timer does not work
 
 
 
