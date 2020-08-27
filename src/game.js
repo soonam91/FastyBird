@@ -25,8 +25,11 @@ class Game {
     this.player.image = this.playerImage;
 
     this.obstacles.push(new Obstacle(this.obstacleImage, 0));
-    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH/2 - 100));
+    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH - 450));
     this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH -100));
+    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH -50));
+    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH -200));
+  
   }
 
   drawGame() {
@@ -56,4 +59,6 @@ class Game {
     //   }
     // });
   }
+
+  
 }

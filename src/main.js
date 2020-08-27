@@ -1,7 +1,30 @@
 const game = new Game();
+var timers = [];
+
+
 
 function preload() {
   game.preloadGame();
+}
+
+timers.push({
+    delay:500,
+    nextFireTime:0,
+    doFunction:doTimers,
+    counter:0
+})
+
+function timerLoop(currentTime){
+    requestAnimationFrame(timerLoop);
+    for(var i = 0; i < timers.length; i++){
+        if (currentTime > timers[i].nextFireTime){
+            var t = timers[i];
+
+            t.nextFireTime = currentTime + t.delay;;
+
+            t.doFunction(t,i);
+        }
+    }
 }
 
 function setup() {
@@ -29,3 +52,4 @@ function keyReleased() {
       }
 }
 
+requestAnimationFrame(timerLoop);

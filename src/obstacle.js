@@ -27,7 +27,7 @@ class Obstacle {
         this.y = -(this.height + randomY);
 
         let minX = 0;
-        let maxX = 500;
+        let maxX = 800;
         let randomX = Math.floor(Math.random() * (1 + maxX - minX)) + minX;
         this.x = randomX;
     }
@@ -35,7 +35,7 @@ class Obstacle {
     checkCollision(player) {
         return !(player.x > this.x + this.width || 
             player.x + player.width < this.x || 
-            player.y > this.y + 70 ||
+            player.y > this.y + 50 ||
             player.y + player.height < this.y);
     }
 }
