@@ -7,13 +7,13 @@ class Game {
   preloadGame() {
     this.backgroundImgs = [
       {
-        src: loadImage('/src/assets/background/field.png'),
+        src: loadImage('src/assets/background/field.png'),
         x: 0,
         speed: 0,
       },
     ];
-    this.playerImage = loadImage('/src/assets/bird.svg');
-    this.obstacleImage = loadImage('/src/assets/obst.png');
+    this.playerImage = loadImage('src/assets/bird.svg');
+    this.obstacleImage = loadImage('src/assets/obst.png');
   }
 
   setupGame() {
