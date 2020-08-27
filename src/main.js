@@ -1,5 +1,5 @@
 const game = new Game();
-var timers = [];
+var timers = [];  // timer does not working
 
 
 
@@ -14,7 +14,7 @@ timers.push({
     counter:0
 })
 
-function timerLoop(currentTime){
+function timerLoop(currentTime){  // timer
     requestAnimationFrame(timerLoop);
     for(var i = 0; i < timers.length; i++){
         if (currentTime > timers[i].nextFireTime){
@@ -52,4 +52,4 @@ function keyReleased() {
       }
 }
 
-requestAnimationFrame(timerLoop);
+requestAnimationFrame(timerLoop); // timer
