@@ -7,35 +7,33 @@ class Game {
   preloadGame() {
     this.backgroundImgs = [
       {
-        src: loadImage('src/assets/background/field.png'),
+        src: loadImage("src/assets/background/field.png"),
         x: 0,
         speed: 0,
       },
     ];
-    this.playerImage = loadImage('src/assets/bird.svg');
-    this.obstacleImage = loadImage('src/assets/obst.png');
+    this.playerImage = loadImage("src/assets/bird.svg");
+    this.obstacleImage = loadImage("src/assets/obst.png");
   }
 
   setupGame() {
     this.background = new Background();
     this.background.images = this.backgroundImgs;
-    
 
     this.player = new Player();
     this.player.image = this.playerImage;
 
     this.obstacles.push(new Obstacle(this.obstacleImage, 0));
     this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH - 450));
-    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH -100));
-    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH -50));
-    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH -200));
-  
+    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH - 100));
+    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH - 50));
+    this.obstacles.push(new Obstacle(this.obstacleImage, WIDTH - 200));
   }
 
   drawGame() {
     if (this.gameOver) {
-        document.getElementById("gameOver").style.display = "block";
-        return;
+      document.getElementById("gameOver").style.display = "block";
+      return;
     }
 
     clear();
@@ -45,11 +43,8 @@ class Game {
     this.obstacles.forEach((obstacle) => {
       obstacle.drawObstacle();
       if (obstacle.checkCollision(this.player)) {
-          this.gameOver = true;
-      };
+        this.gameOver = true;
+      }
     });
-   
   }
-
-  
 }

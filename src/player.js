@@ -12,7 +12,7 @@ class Player {
   }
 
   drawPlayer() {
-    if (this.rightPressed && this.x < WIDTH-this.width) {
+    if (this.rightPressed && this.x < WIDTH - this.width) {
       this.x += this.velocity;
     }
     if (this.leftPressed && this.x > 0) {
